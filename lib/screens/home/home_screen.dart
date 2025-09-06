@@ -38,7 +38,12 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
         bottom: PreferredSize(
           preferredSize: Size.fromHeight(57),
           child: Padding(
-            padding: EdgeInsets.all(16.0),
+            padding: EdgeInsets.only(
+              left: 24.0,
+              top: 16.0,
+              bottom: 16.0,
+              right: 24.0,
+            ),
             child: Container(
               height: 42.0,
               decoration: BoxDecoration(

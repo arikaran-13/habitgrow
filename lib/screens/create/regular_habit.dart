@@ -1,20 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:habitgrow/models/goal.dart';
+import 'package:habitgrow/service/goal_store.dart';
 import 'package:habitgrow/theme.dart';
+import 'package:uuid/uuid.dart';
 
-class RegularHabit extends StatefulWidget {
+class RegularHabit extends ConsumerStatefulWidget {
   const RegularHabit({super.key});
 
   @override
-  State<RegularHabit> createState() => _RegularHabitState();
+  ConsumerState<RegularHabit> createState() => _RegularHabitState();
 }
 
-class _RegularHabitState extends State<RegularHabit> {
+class _RegularHabitState extends ConsumerState<RegularHabit> {
   var createGoalFormKey = GlobalKey<FormState>();
   var selectedColor = AppColors.goalColors[0];
+  var nameController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
+    var service = ref.watch(firestoreServiceProvider);
+
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(24.0),
@@ -27,6 +34,7 @@ class _RegularHabitState extends State<RegularHabit> {
               const SizedBox(height: 8),
               // Styled TextFormField
               TextFormField(
+                controller: nameController,
                 decoration: InputDecoration(hintText: "Habit Name"),
               ),
               const SizedBox(height: 8.0),
@@ -135,7 +143,18 @@ class _RegularHabitState extends State<RegularHabit> {
               SizedBox(
                 width: double.infinity,
                 child: FilledButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (createGoalFormKey.currentState!.validate()) {
+                      var goal = Goal(
+                        id: Uuid().v4(),
+                        name: nameController.text,
+                        color: selectedColor,
+                        status: GoalStatus.active,
+                      );
+                      service.createGoal(goal);
+                      Navigator.pop(context);
+                    }
+                  },
                   child: Text(
                     "Save",
                     style: Theme.of(context).textTheme.displayMedium,

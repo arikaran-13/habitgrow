@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "674566770694",
+    "project_id": "habitgrow-8dc47",
+    "storage_bucket": "habitgrow-8dc47.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674566770694:android:29cec55b30d09be4b0f387",
+        "android_client_info": {
+          "package_name": "com.example.habitgrow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzEFDrpeWXZY_fOhQLnWGluixh_W4KNic"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
