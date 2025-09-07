@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:habitgrow/screens/home/widgets/goal_list_tile.dart';
-import 'package:habitgrow/service/goal_store.dart';
+import 'package:habitgrow/providers/goal_store.dart';
 import 'package:habitgrow/theme.dart';
 
 class TodayTab extends ConsumerStatefulWidget {
@@ -28,10 +28,14 @@ class _TodayTabState extends ConsumerState<TodayTab> {
                     itemBuilder: (ctx, index) {
                       return Padding(
                         padding: const EdgeInsets.all(10.0),
-                        child: GoalListTile(
-                          icon: Icons.home,
-                          goalName: goals[index].name,
-                          color: goals[index].color,
+                        child: Dismissible(
+                          key: Key(goals[index].id),
+                          onDismissed: (direction) => {},
+                          child: GoalListTile(
+                            fluentData: goals[index].icon,
+                            goalName: goals[index].name,
+                            color: goals[index].color,
+                          ),
                         ),
                       );
                     },

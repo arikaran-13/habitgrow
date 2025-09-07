@@ -195,6 +195,20 @@ ThemeData primaryTheme = ThemeData(
       ),
     ),
   ),
+  outlinedButtonTheme: OutlinedButtonThemeData(
+    style: OutlinedButton.styleFrom(
+      backgroundColor: AppColors.brandColor.withAlpha(30),
+      foregroundColor: AppColors.brandColor,
+      elevation: 0,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      textStyle: GoogleFonts.urbanist(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
+      side: BorderSide.none,
+    ),
+  ),
   iconButtonTheme: IconButtonThemeData(
     style: IconButton.styleFrom(
       foregroundColor: AppColors.brandColor,

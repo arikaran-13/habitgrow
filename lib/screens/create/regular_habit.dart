@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:habitgrow/models/goal.dart';
-import 'package:habitgrow/service/goal_store.dart';
+import 'package:habitgrow/screens/create/widgets/icon_list.dart';
+import 'package:habitgrow/providers/goal_store.dart';
 import 'package:habitgrow/theme.dart';
 import 'package:uuid/uuid.dart';
 
@@ -37,6 +38,8 @@ class _RegularHabitState extends ConsumerState<RegularHabit> {
                 controller: nameController,
                 decoration: InputDecoration(hintText: "Habit Name"),
               ),
+              const SizedBox(height: 8.0),
+              IconList(),
               const SizedBox(height: 8.0),
               Text("Color", style: Theme.of(context).textTheme.labelLarge),
               const SizedBox(height: 8.0),
@@ -150,8 +153,10 @@ class _RegularHabitState extends ConsumerState<RegularHabit> {
                         name: nameController.text,
                         color: selectedColor,
                         status: GoalStatus.active,
+                        icon: ref.read(selectedGoalIcon.notifier).state,
                       );
                       service.createGoal(goal);
+                      ref.invalidate(selectedGoalIcon);
                       Navigator.pop(context);
                     }
                   },

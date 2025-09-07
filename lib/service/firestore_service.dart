@@ -22,4 +22,9 @@ class FirestoreService {
       return snapshot.docs.map((doc) => doc.data()).toList();
     });
   }
+
+  Future<void> deleteGoal(String id) async {
+    await ref.doc(id).delete();
+    log.i("Goal deleted $id");
+  }
 }
