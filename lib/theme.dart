@@ -10,7 +10,7 @@ class AppColors {
   static final Color warningAlert = Color(0xFFFACC15); // Amber / Golden Yellow
   static final Color errorAlert = Color(0xFFF75555); // Bright Red
   static final Color tabBarBackground = Color(0xFFF5F5F5);
-
+  static final Color white = Colors.white;
   static final Map<String, Color> background = {
     'primary': Color(0XFFF6F5FD), // Ghost White
     'lite': Color(0xFFEEEEEE), // Platinum / Very Light Gray

@@ -7,14 +7,36 @@ final firestoreServiceProvider = Provider<FirestoreService>(
   (ref) => FirestoreService(),
 );
 
-final todayGoalsProvider = StreamProvider<List<Goal>>((ref) {
+final goalsProvider = StreamProvider<List<Goal>>((ref) {
   var service = ref.watch(firestoreServiceProvider);
   return service.getGoals();
 });
 
-// state of goal selected icon during goal creating stored here temporarily
-final selectedGoalIcon = StateProvider<FluentData?>((ref) =>null);
+final activeGoalsProvider = StreamProvider<List<Goal>>((ref) {
+  var service = ref.watch(firestoreServiceProvider);
+  return service.getGoals().map(
+    (goals) => goals.where((goal) => goal.status == GoalStatus.active).toList(),
+  );
+});
 
+final skippedGoalsProvider = StreamProvider<List<Goal>>((ref) {
+  var service = ref.watch(firestoreServiceProvider);
+  return service.getGoals().map(
+    (goals) =>
+        goals.where((goal) => goal.status == GoalStatus.skipped).toList(),
+  );
+});
+
+final completedGoalsProvider = StreamProvider<List<Goal>>((ref) {
+  var service = ref.watch(firestoreServiceProvider);
+  return service.getGoals().map(
+    (goals) =>
+        goals.where((goal) => goal.status == GoalStatus.completed).toList(),
+  );
+});
+
+// state of goal selected icon during goal creating stored here temporarily
+final selectedGoalIcon = StateProvider<FluentData?>((ref) => null);
 
 final sampleFluentIconsProvider = StateProvider<List<FluentData>>((ref) {
   return [
@@ -139,4 +161,3 @@ var goalsEmojiProvider = StateProvider<List<FluentData>>((ref) {
     Fluents.flRedEnvelope,
   ];
 });
-

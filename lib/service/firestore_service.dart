@@ -27,4 +27,9 @@ class FirestoreService {
     await ref.doc(id).delete();
     log.i("Goal deleted $id");
   }
+
+  Future<void> updateGoal(Goal goal) async {
+    await ref.doc(goal.id).set(goal);
+    log.i("Goal updated ${goal.id}");
+  }
 }
