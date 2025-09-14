@@ -26,7 +26,12 @@ class GoalListTile extends StatelessWidget {
       child: Row(
         children: [
           if (fluentData != null) StyledFluentIcon(fluentData: fluentData!),
-          Text(goalName, style: Theme.of(context).textTheme.headlineSmall),
+          Expanded(
+            child: Text(
+              goalName,
+              style: Theme.of(context).textTheme.headlineSmall,
+            ),
+          ),
         ],
       ),
     );

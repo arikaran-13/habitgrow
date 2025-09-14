@@ -57,7 +57,6 @@ final sampleFluentIconsProvider = StateProvider<List<FluentData>>((ref) {
 
 var goalIconsProvider = StateProvider<List<FluentData>>((ref) {
   return [
-    // Already added
     Fluents.flAmericanFootball,
     Fluents.flSportsMedal,
     Fluents.flBullseye,
@@ -66,6 +65,9 @@ var goalIconsProvider = StateProvider<List<FluentData>>((ref) {
     Fluents.flIceSkate,
     Fluents.flBooks,
     Fluents.flPingPong,
+    Fluents.flCannedFood,
+    Fluents.flPotOfFood,
+    Fluents.flCookedRice,
     Fluents.flBadminton,
     Fluents.flCricketGame,
     Fluents.flServiceDog,

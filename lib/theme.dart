@@ -11,6 +11,7 @@ class AppColors {
   static final Color errorAlert = Color(0xFFF75555); // Bright Red
   static final Color tabBarBackground = Color(0xFFF5F5F5);
   static final Color white = Colors.white;
+  static final Color liteGrey = Color(0xFF9E9E9E);
   static final Map<String, Color> background = {
     'primary': Color(0XFFF6F5FD), // Ghost White
     'lite': Color(0xFFEEEEEE), // Platinum / Very Light Gray
@@ -106,9 +107,9 @@ ThemeData primaryTheme = ThemeData(
       color: AppColors.textColor['dark'],
     ),
     labelSmall: GoogleFonts.urbanist(
-      fontSize: 14.0,
-      fontWeight: FontWeight.w400,
-      color: AppColors.textColor['darkLite'],
+      // fontSize: 14.0,
+      fontWeight: FontWeight.bold,
+      color: AppColors.liteGrey,
     ),
     displayLarge: GoogleFonts.urbanist(
       fontSize: 20.0,

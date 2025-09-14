@@ -10,7 +10,7 @@ class StyledFluentIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(12.0),
-      child: FluentUiEmojiIcon(fl: fluentData, h: 52.0, w: 52.0),
+      child: FluentUiEmojiIcon(fl: fluentData, h: 42.0, w: 42.0),
     );
   }
 }

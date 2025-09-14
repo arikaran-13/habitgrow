@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:habitgrow/screens/create/create_goal_screen.dart';
+import 'package:habitgrow/screens/home/widgets/overall.dart';
 import 'package:habitgrow/screens/home/widgets/today.dart';
+import 'package:habitgrow/screens/home/widgets/weekly.dart';
 import 'package:habitgrow/theme.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -60,11 +62,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin {
       ),
       body: TabBarView(
         controller: tabController,
-        children: [
-          TodayTab(),
-          Center(child: Text("Weekly goals")),
-          Center(child: Text("Overall goals")),
-        ],
+        children: [TodayTab(), Weekly(), Overall()],
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
