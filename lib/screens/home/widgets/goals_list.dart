@@ -19,7 +19,7 @@ class GoalsList extends ConsumerWidget {
           itemCount: goals.length,
           itemBuilder: (ctx, index) {
             return Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.all(8.0),
               child: Dismissible(
                 key: Key(goals[index].id),
                 background: _completeGoalBackground(),
@@ -50,11 +50,7 @@ class GoalsList extends ConsumerWidget {
                       ),
                     },
                 },
-                child: GoalListTile(
-                  fluentData: goals[index].icon,
-                  goalName: goals[index].name,
-                  color: goals[index].color,
-                ),
+                child: GoalListTile(goal: goals[index]),
               ),
             );
           },
