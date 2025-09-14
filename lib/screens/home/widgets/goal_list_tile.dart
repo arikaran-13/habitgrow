@@ -1,4 +1,3 @@
-import 'package:fluentui_emoji_icon/fluentui_emoji_icon.dart';
 import 'package:flutter/material.dart';
 import 'package:habitgrow/models/goal.dart';
 import 'package:habitgrow/screens/home/widgets/goal_status_icon.dart';
